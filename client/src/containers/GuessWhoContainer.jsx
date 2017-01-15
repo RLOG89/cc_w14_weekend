@@ -5,7 +5,7 @@ import QuestionForm from '../components/QuestionForm.jsx'
 class GuessWhoContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {characters: [], yourCharacter: undefined, oppCharacter: undefined, gameState: 'playing'} 
+    this.state = {characters: [], yourCharacter: undefined, oppCharacter: undefined, gameWon: false, question:''} 
   }
   loadCharacters(url) {
     const request = new XMLHttpRequest();
@@ -24,12 +24,12 @@ class GuessWhoContainer extends React.Component {
   componentDidMount() {
     this.loadCharacters(this.props.url)
   }
-  handleClickSelect() {
+  // handleClickSelect(e) {
 
-  }
-  chooseYourCharacter() {
-
-  }
+  // }
+  // chooseYourCharacter(e) {
+  //   this.setState({yourCharacter: e.target.value})
+  // }
   oppCharacterSelector() {
     const randSelection = characters[Math.floor(Math.random() * characters.length - 1)] 
     if(randSelection !== yourCharacter) {
@@ -42,6 +42,7 @@ class GuessWhoContainer extends React.Component {
         <div className='guess-who-container'>
         <h1> Guess Who</h1>
         <Board characters={this.state.characters}/>
+        <QuestionForm characters={this.state.characters} oppCharacter={this.state.oppCharacter}/>
         </div>
         )
   }
