@@ -1,5 +1,6 @@
 import React from 'react'
 import Board from '../components/Board.jsx'
+import QuestionForm from '../components/QuestionForm.jsx'
 
 class GuessWhoContainer extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class GuessWhoContainer extends React.Component {
         console.log(data)
         this.setState({characters: data});
       } else {
-        console.log("error")
+        alert("error")
       }
     }
     request.send(null);
@@ -23,14 +24,26 @@ class GuessWhoContainer extends React.Component {
   componentDidMount() {
     this.loadCharacters(this.props.url)
   }
+  handleClickSelect() {
+
+  }
+  chooseYourCharacter() {
+
+  }
+  oppCharacterSelector() {
+    const randSelection = characters[Math.floor(Math.random() * characters.length - 1)] 
+    if(randSelection !== yourCharacter) {
+      this.setState({oppCharacter: randSelection})
+    } // may need else clause here to select again //
+  }
   render() {
     if(!this.state.characters.length){return <p>Loading characters, please wait...</p>}
-    return (
-      <div className='guess-who-container'>
-      <h1> Guess Who</h1>
-      <Board characters={this.state.characters}/>
-      </div>
-      )
+      return (
+        <div className='guess-who-container'>
+        <h1> Guess Who</h1>
+        <Board characters={this.state.characters}/>
+        </div>
+        )
   }
 }
 
