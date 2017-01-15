@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Character = (props) => {
+const Character = function({name, gender, eyeColour, hairColour, image}) {
   return (
-    <div>
+    <div className='character'>
       <h5> Character </h5>
+      <img src = {image} />
+     <h4> {name} {gender} {eyeColour} {hairColour} </h4>
     </div>
   )
 }
