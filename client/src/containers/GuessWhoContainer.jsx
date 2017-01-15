@@ -4,7 +4,7 @@ import Board from '../components/Board.jsx'
 class GuessWhoContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {characters: []}
+    this.state = {characters: [], yourCharacter: undefined, oppCharacter: undefined, gameState: 'playing'} 
   }
   loadCharacters(url) {
     const request = new XMLHttpRequest();
@@ -23,13 +23,12 @@ class GuessWhoContainer extends React.Component {
   componentDidMount() {
     this.loadCharacters(this.props.url)
   }
-
   render() {
     if(!this.state.characters.length){return <p>Loading characters, please wait...</p>}
     return (
-      <div>
+      <div className='guess-who-container'>
       <h1> Guess Who</h1>
-      <Board />
+      <Board characters={this.state.characters}/>
       </div>
       )
   }
