@@ -3,15 +3,18 @@ import Character from './Character.jsx'
 
 const Board = function ({characters}) {
   return (
-    <div>
-    <h3> Board </h3>
+    <table className='board'>
+      <tbody>
+        <tr>
     {characters.map(function(char, index) {
       return (
-        <Character key={index} image={char.image} />
-      )
+        <Character key={index} name={char.name} image={char.image} />
+        )
     })}
-    </div>
-  )
+        </tr>
+      </tbody>
+    </table>
+    )
 }
 
 export default Board
