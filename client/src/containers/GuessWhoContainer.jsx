@@ -1,6 +1,7 @@
 import React from 'react'
 import Board from '../components/Board.jsx'
 import QuestionForm from '../components/QuestionForm.jsx'
+import QuestionSelector from '../components/QuestionSelector.jsx'
 
 class GuessWhoContainer extends React.Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class GuessWhoContainer extends React.Component {
         <div className='guess-who-container'>
         <h1> Guess Who</h1>
         <Board characters={this.state.characters}/>
+        <QuestionSelector oppCharacter={this.state.oppCharacter} />
         <QuestionForm characters={this.state.characters} oppCharacter={this.state.oppCharacter}/>
         </div>
         )

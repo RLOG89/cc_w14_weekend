@@ -7,11 +7,10 @@ body{
   height: 150px;
   background-size: cover;
   display: inline-block;
-  border: 1px solid grey;
-  box-shadow: 3px 3px 8px #939393;
-  border-radius: 15px;
   color: white;
   text-align: center;
   vertical-align: bottom;
 }
+
+//fix name to bottom later
 
